@@ -156,6 +156,7 @@ class Perso extends BaseEntity
             $pointsDeVieEnnemie = $perso->pointsDeVie;
             $degats = $this->attaque - $perso->defence;
             $pointsDeVieEnnemie = $pointsDeVieEnnemie - $degats ;
+            $perso->pointsDeVie = $pointsDeVieEnnemie;
             return "Vous avez infligé $degats points de dégats !";
         } else {
             return "Votre attaque est inefficace ...";

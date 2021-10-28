@@ -2,7 +2,7 @@
 
 class Guerrier extends Perso
 {
-    
+
     /**
      * Set the value of type
      *
@@ -10,7 +10,7 @@ class Guerrier extends Perso
      */ 
     public function setType($type)
     {
-        $this->type = $type;
+        $this->type = 'guerrier';
 
         return $this;
     }

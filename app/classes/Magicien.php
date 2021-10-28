@@ -10,11 +10,11 @@ class Magicien extends Perso
      */ 
     public function setType($type)
     {
-        $this->type = $type;
+        $this->type = 'magicien';
 
         return $this;
     }
-    
+
     /**
      * Set the value of defence
      *

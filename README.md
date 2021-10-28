@@ -23,9 +23,9 @@ PENSER RÉSILIENT !!
 
 ## On doit stocker :         
 • son id        
-• son nom        
 • son type        
-• ses Pv       
-• le temps         
+• son nom        
+• ses pv
 • son attaque (random à la création du perso)        
 • sa défense (guerrier ? aléatoir : 0 )        
+• le temps         

@@ -4,11 +4,12 @@ class Perso extends BaseEntity
 {
     private int $force;
     private int $defence;
-    private int $pointsDeVie;
+    private int $pointsDeVie = 100;
     private string $nom;
+    private string $type;
     private int $temps;
     private int $tempsAttaque = 0;
-    
+
     /**
      * Get the value of defence
      */ 
@@ -90,6 +91,26 @@ class Perso extends BaseEntity
     }
 
     /**
+     * Get the value of type
+     */ 
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set the value of type
+     *
+     * @return  self
+     */ 
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
      * Get the value of temps
      */ 
     public function getTemps()
@@ -140,4 +161,6 @@ class Perso extends BaseEntity
             return "Votre attaque est inefficace ...";
         }
     }
+
+
 }

@@ -2,7 +2,43 @@
 
 class Magicien extends Perso
 {
-    private int $pointsDeVie = 100;
+
+    /**
+     * Set the value of type
+     *
+     * @return  self
+     */ 
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+    
+    /**
+     * Set the value of defence
+     *
+     * @return  self
+     */ 
+    public function setDefence($defence)
+    {
+        $this->defence = 0;
+
+        return $this;
+    }
+
+    /**
+     * Set the value of force
+     *
+     * @return  self
+     */ 
+    public function setForce($force)
+    {
+        $this->force = rand(5,10);
+
+        return $this;
+    }
+
 
     public function lancerPoudreDodo(Perso $perso)
     {
@@ -16,5 +52,4 @@ class Magicien extends Perso
         }
     }
 
-    
 }

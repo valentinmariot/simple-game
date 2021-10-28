@@ -2,27 +2,41 @@
 
 class Guerrier extends Perso
 {
-    private int $pointsDeVie = 100;
-
     
-
     /**
-     * Get the value of pointsDeVie
-     */ 
-    public function getPointsDeVie()
-    {
-        return $this->pointsDeVie;
-    }
-
-    /**
-     * Set the value of pointsDeVie
+     * Set the value of type
      *
      * @return  self
      */ 
-    public function setPointsDeVie($pointsDeVie)
+    public function setType($type)
     {
-        $this->pointsDeVie = $pointsDeVie;
+        $this->type = $type;
 
         return $this;
     }
+  
+    /**
+     * Set the value of defence
+     *
+     * @return  self
+     */ 
+    public function setDefence($defence)
+    {
+        $this->defence = rand(10,19);
+
+        return $this;
+    }
+
+    /**
+     * Set the value of force
+     *
+     * @return  self
+     */ 
+    public function setForce($force)
+    {
+        $this->force = rand(20,40);
+
+        return $this;
+    }
+
 }

@@ -25,6 +25,7 @@ PENSER RÉSILIENT !!
 • son id        
 • son nom        
 • son type        
-• ses Pv        
+• ses Pv       
+• le temps         
 • son attaque (random à la création du perso)        
 • sa défense (guerrier ? aléatoir : 0 )        

@@ -7,7 +7,8 @@ class Perso extends BaseEntity
     private int $pointsDeVie;
     private string $nom;
     private int $temps;
-
+    private int $tempsAttaque = 0;
+    
     /**
      * Get the value of defence
      */ 
@@ -107,5 +108,36 @@ class Perso extends BaseEntity
 
         return $this;
     }
-    
+
+    /**
+     * Get the value of tempsAttaque
+     */ 
+    public function getTempsAttaque()
+    {
+        return $this->tempsAttaque;
+    }
+
+    /**
+     * Set the value of tempsAttaque
+     *
+     * @return  self
+     */ 
+    public function setTempsAttaque($tempsAttaque)
+    {
+        $this->tempsAttaque = $tempsAttaque;
+
+        return $this;
+    }
+
+    public function attaque(Perso $perso)
+    {
+        if ($this->defence < $this->attaque){
+            $pointsDeVieEnnemie = $perso->pointsDeVie;
+            $degats = $this->attaque - $perso->defence;
+            $pointsDeVieEnnemie = $pointsDeVieEnnemie - $degats ;
+            return "Vous avez infligé $degats points de dégats !";
+        } else {
+            return "Votre attaque est inefficace ...";
+        }
+    }
 }

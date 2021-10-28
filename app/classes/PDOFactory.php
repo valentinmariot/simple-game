@@ -3,9 +3,9 @@
 class PDOFactory
 {
 
-	private $db="mysql:dbname=simplegame;host=localhost;charset=utf8";
+	private $db="mysql:dbname=simplegame;host=localhost:8080;charset=utf8";
 	private $login="root";
-	private $password="";
+	private $password="example";
 	
 
 	private $pdo;

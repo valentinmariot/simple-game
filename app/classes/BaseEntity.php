@@ -19,5 +19,4 @@ abstract class BaseEntity
         }
     }
 
-    abstract public function hello();
 }

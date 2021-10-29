@@ -1,10 +1,16 @@
 <?php
 
-spl_autoload_register(function($className) {
-    require $className . '.php';
-});
-?>
+include '../classes/PDOFactory.php';
 
+// $query = new PDOFactory(self::$pdo->query("SELECT * FROM `personnages`"));
+$pdo = new PDOFactory();
+$lorem = $pdo->getConnection();
+$ipsum = $lorem->query('SELECT * FROM `personnages`');
+$ipsum->setFetchMode(PDO::FETCH_CLASS |PDO::FETCH_PROPS_LATE, 'Perso');
+$persos = $ipsum->fetchAll();
+
+var_dump($persos);
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>

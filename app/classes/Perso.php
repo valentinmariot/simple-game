@@ -2,13 +2,12 @@
 
 class Perso extends BaseEntity
 {
+    private string $type;
+    private string $nom;
+    private int $pointsDeVie = 100;
     private int $force;
     private int $defence;
-    private int $pointsDeVie = 100;
-    private string $nom;
-    private string $type;
-    private int $temps;
-    private int $tempsAttaque = 0;
+    private int $temps = 0;
 
     /**
      * Get the value of defence
@@ -63,11 +62,13 @@ class Perso extends BaseEntity
      *
      * @return  self
      */ 
-    public function setPointsDeVie($pointsDeVie)
+    public function setPointsDeVie($pointsDeVie, int $id)
     {
         $this->pointsDeVie = $pointsDeVie;
 
         return $this;
+
+        // return $this->db->query("SELECT `personnages` SET `pv` = ? WHERE `personnages`.`id` = ?", [$pointsDeVie, $id]);
     }
 
     /**
@@ -130,33 +131,13 @@ class Perso extends BaseEntity
         return $this;
     }
 
-    /**
-     * Get the value of tempsAttaque
-     */ 
-    public function getTempsAttaque()
-    {
-        return $this->tempsAttaque;
-    }
-
-    /**
-     * Set the value of tempsAttaque
-     *
-     * @return  self
-     */ 
-    public function setTempsAttaque($tempsAttaque)
-    {
-        $this->tempsAttaque = $tempsAttaque;
-
-        return $this;
-    }
-
     public function attaque(Perso $perso)
     {
         if ($this->defence < $this->attaque){
-            $pointsDeVieEnnemie = $perso->pointsDeVie;
+            $pointsDeVieEnnemi = $perso->pointsDeVie;
             $degats = $this->attaque - $perso->defence;
-            $pointsDeVieEnnemie = $pointsDeVieEnnemie - $degats ;
-            $perso->pointsDeVie = $pointsDeVieEnnemie;
+            $pointsDeVieEnnemi = $pointsDeVieEnnemi - $degats ;
+            $perso->pointsDeVie = $pointsDeVieEnnemi;
             return "Vous avez infligé $degats points de dégats !";
         } else {
             return "Votre attaque est inefficace ...";
@@ -164,4 +145,5 @@ class Perso extends BaseEntity
     }
 
 
+    // "SELECT `personnages` SET `temps` = $temps WHERE `personnages`.`id` = $id";
 }

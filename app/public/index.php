@@ -2,14 +2,12 @@
 
 include '../classes/PDOFactory.php';
 
-// $query = new PDOFactory(self::$pdo->query("SELECT * FROM `personnages`"));
 $pdo = new PDOFactory();
 $lorem = $pdo->getConnection();
 $ipsum = $lorem->query('SELECT * FROM `personnages`');
 $ipsum->setFetchMode(PDO::FETCH_CLASS |PDO::FETCH_PROPS_LATE, 'Perso');
 $persos = $ipsum->fetchAll();
 
-var_dump($persos);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,13 +16,13 @@ var_dump($persos);
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css/bootstrap.min.css">
-        <title>Document</title>
+        <title>Jeu naïf</title>
     </head>
     <body>
-        <div>
+        <container>
             <?php
-                include '../views/gestion.php';
+                include 'gestion.php';
             ?>   
-        </div>     
+        </container>   
     </body>
-</html>
+</html> 

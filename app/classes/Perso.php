@@ -6,15 +6,15 @@ class Perso extends BaseEntity
     private string $nom;
     private int $pointsDeVie = 100;
     private int $force;
-    private int $defence;
+    private int $defense;
     private int $temps = 0;
 
     /**
      * Get the value of defence
      */ 
-    public function getDefence()
+    public function getDefense()
     {
-        return $this->defence;
+        return $this->defense;
     }
 
     /**
@@ -22,9 +22,9 @@ class Perso extends BaseEntity
      *
      * @return  self
      */ 
-    public function setDefence($defence)
+    public function setDefence($defense)
     {
-        $this->defence = $defence;
+        $this->defense = $defense;
 
         return $this;
     }

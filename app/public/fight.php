@@ -1,30 +1,32 @@
+<?php
 
+    spl_autoload_register(function($className) {
+        require '../classes/' . $className . '.php';
+    });
 
-<!-- <!DOCTYPE html>
-<html lang="en">
+    $pdo = new PDOFactory();
+    $lorem = $pdo->getConnection();
+    $ipsum = $lorem->query('SELECT * FROM `personnages`');
+    $ipsum->setFetchMode(PDO::FETCH_CLASS |PDO::FETCH_PROPS_LATE, 'Perso');
+    $persos = $ipsum->fetchAll();
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../public/css/bootstrap.min.css">
-        <title>Document</title>
-    </head>
+    foreach ($persos as $perso) { ?>
 
-    <body> -->
-        <?php while($data['id'] = $value->fetch()) { ?>
-            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-                <div class="card-header"><?php echo $data['nom'] ?></div>
-                <div class="card-body">
-                    <h4 class="card-title">Action :</h4>
-                    <button type="button" class="btn btn-secondary">Attaquer</button>
-                    <?php /*if ($data['type'] == 'magicien') {*/ ?>
-                        <!-- <button type="button" class="btn btn-secondary">Endormir</button> -->
-                    <?php /* } */ ?>
+        <div class="card text-white bg-primary mb-3 mx-3" style="max-width: 20rem;">
+            <div class="card-header"><?php echo $perso->getNom(); ?></div>
+            <div class="card-body">
+                
+                    <p>Points de vie :<?php echo $perso->getPointsDeVie(); ?> </p>
+                    <p>Force : <?php echo $perso->getForce(); ?> </p>
+                    <p>Défense : <?php echo $perso->getDefense(); ?> </p>
 
-        <?php } ?>
-                </div>
+                <h4 class="card-title">Action :</h4>
+                <button type="button" class="btn btn-secondary">Attaquer</button>
+                <?php if ($perso->getType() == 'magicien') { ?>
+                    <button type="button" class="btn btn-secondary">Endormir</button>
+                <?php  }  ?>
+
             </div>
-            
-    <!-- </body>
-</html> -->
+        </div>
+
+<?php } ?>
